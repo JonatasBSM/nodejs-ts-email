@@ -1,4 +1,4 @@
-import { index, create, store, show, edit, update, destroy } from '../Controllers/UserController'
+import { index, create, store, show, edit, update, destroy } from '../controllers/UserController'
 import { Router } from 'express';
 
 

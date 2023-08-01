@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
-import router from './Routes/Router';
+import router from './routes/Router';
+import connect from './Config/connection';
 
 const app: Express = express()
 const port: number = 3000;
