@@ -1,10 +1,11 @@
 import express, { Express } from 'express';
 import router from './routes/Router';
-import connect from './Config/connection';
+import bodyParser from 'body-parser';
 
 const app: Express = express()
 const port: number = 3000;
 
+app.use(bodyParser.json());
 app.use(router);
 
 app.listen(port, () =>  {

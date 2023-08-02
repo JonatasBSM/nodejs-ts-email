@@ -1,23 +1,25 @@
 import { index, create, store, show, edit, update, destroy } from '../controllers/UserController'
 import { Router } from 'express';
+import { auth } from '../middlewares/auth';
 
+const usersRouter: Router = Router();
 
-const userRoutes = Router();
+usersRouter.get('/', index);
 
-userRoutes.get('/users', index);
+usersRouter.get('/create', create);
 
-userRoutes.get('/users/create', create);
+usersRouter.post('/', store);
 
-userRoutes.post('/users', store);
+usersRouter.get('/:id', show);
 
-userRoutes.get('/users/:id', show);
+usersRouter.use(auth)
 
-userRoutes.get('/users/:id/edit', edit);
+usersRouter.get('/:id/edit', edit);
 
-userRoutes.patch('/users/:id', update);
+usersRouter.patch('/:id', update);
 
-userRoutes.put('/users/:id', update);
+usersRouter.put('/:id', update);
 
-userRoutes.delete('/users/:id', destroy);
+usersRouter.delete('/:id', destroy);
 
-export default userRoutes
+export default usersRouter
