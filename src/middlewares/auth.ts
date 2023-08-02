@@ -20,17 +20,3 @@ export function auth(req, res, next: NextFunction) {
     })
 
 }
-
-
-function getCookie(cookieHeader: string, cookieName: string): string | undefined {
-    const cookieArray = cookieHeader.split(';');
-  
-    for (const cookieStr of cookieArray) {
-      const [name, value] = cookieStr.trim().split('=');
-      if (name === cookieName) {
-        return value;
-      }
-    }
-  
-    return undefined;
-  }
